@@ -1,0 +1,73 @@
+@use '../../index';
+
+.app {
+    position: relative;
+    overflow: hidden;
+}
+
+.app.open {
+    margin-right: 250px;
+}
+
+.menu-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+    z-index: 999;
+}
+
+.hamburger {
+    width: 30px;
+    height: 30px;
+    background-color: transparent;
+    background-image: url('../../assets/images/burger-bar.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    transition: transform 0.3s;
+}
+
+.app.open .hamburger {
+    transform: rotate(90deg);
+}
+
+// .app.open .hamburger:before {
+//     transform: translateY(8px) rotate(-45deg);
+// }
+
+// .app.open .hamburger:after {
+//     opacity: 0;
+// }
+
+.menu {
+    position: fixed;
+    top: 0;
+    right: -250px;
+    width: 250px;
+    height: 100%;
+    background-color: index.$hd-gray-light;
+    color: index.$hd-black;
+    // padding: 20px;
+    transition: right 0.3s ease-in-out;
+    z-index: 998;
+    display: hidden;
+
+    @media screen and (max-width: 320px) {
+        width: 80px;
+    }
+}
+
+.app.open .menu {
+    right: 0;
+}
+
+.content {
+    margin-right: 250px;
+    height: 100vh;
+    background-color: index.$hd-white;
+    transition: margin-right 0.3s;
+}
+
+ul {
+    list-style-type: none;
+}
